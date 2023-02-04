@@ -3,6 +3,8 @@ import "./App.css";
 function App() {
   return (
     <>
+    {/* Bootstrap Nabar Added  */}
+
       <nav className="navbar navbar-expand-lg bg-body-tertiary">
   <div className="container-fluid">
     <a className="navbar-brand" href = "/">TextUtils</a>
