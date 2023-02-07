@@ -26,7 +26,6 @@ export const TextForm = (props) => {
               className="form-control"
               value={text}
               onChange={handleUpChange}
-              // placeholder = "{Enter Text Here"};
               rows="8"
             ></textarea>
           </div>
@@ -40,6 +39,14 @@ export const TextForm = (props) => {
         <button className="btn btn-outline-primary float-end" onClick={handleClear}>
           Clear
         </button>
+      </div>
+
+      <div className="container my-3">
+        <h2>Your Text Summary</h2>
+        <p>{text.split(" ").length} words and {text.length} characters</p>
+        <p>Time to Read {text.split(" ").length* 0.008} Minutes</p>
+        <h2>Preview</h2>
+        <p>{text}</p>
       </div>
     </>
   );
