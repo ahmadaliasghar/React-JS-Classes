@@ -12,7 +12,7 @@ export const TextForm = (props) => {
   };
   const addRandomText = () => {
     let newText =
-      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut atque deleniti ducimus aperiam";
+      "Hello Everyone! This website is developed by Ahmad Ali Asghar. Good Luck to all of You...";
     setText(newText);
   };
   const speakText = () => {
@@ -23,21 +23,21 @@ export const TextForm = (props) => {
   const handleReverseText = () => {
     let reversedText = text.split("");
     reversedText = reversedText.reverse();
-    reversedText =reversedText.join('');
-    reversedText=reversedText.replace(",","");
+    reversedText = reversedText.join("");
+    reversedText = reversedText.replace(",", "");
     setText(reversedText);
   };
   const handleBinaryClick = () => {
     let newText = textToBinary(text);
     setText(newText);
   };
-  
+
   const textToBinary = (text) => {
     let binaryString = "";
     for (let i = 0; i < text.length; i++) {
       let char = text.charCodeAt(i);
       let binaryRepresentation = char.toString(2);
-      binaryRepresentation = binaryRepresentation.padStart(8, '0');
+      binaryRepresentation = binaryRepresentation.padStart(8, "0");
       binaryString += binaryRepresentation;
     }
     return binaryString;
@@ -55,13 +55,12 @@ export const TextForm = (props) => {
     for (let i = 0; i < text.length; i++) {
       let char = text.charCodeAt(i);
       let hexRepresentation = char.toString(16).toUpperCase();
-      hexRepresentation = hexRepresentation.padStart(2, '0');
+      hexRepresentation = hexRepresentation.padStart(2, "0");
       hexString += hexRepresentation;
     }
     setText(hexString);
   };
-  
-  
+
   const handleClear = () => {
     setText("");
   };
@@ -97,29 +96,33 @@ export const TextForm = (props) => {
         <button className="btn btn-primary my-3" onClick={handleReverseText}>
           Reverse Text
         </button>
-        <button className="btn btn-primary mx-1 my-3" onClick={handleAsciiClick}>
+        <button
+          className="btn btn-primary mx-1 my-3"
+          onClick={handleAsciiClick}
+        >
           Convert to ASCII
         </button>
         <button className="btn btn-primary my-3" onClick={handleHexClick}>
           Convert to Hexadecimal
         </button>
-        <button className="btn btn-primary my-3" onClick={handleBinaryClick}>
+        <button
+          className="btn btn-primary mx-1 my-3"
+          onClick={handleBinaryClick}
+        >
           Convert To Binary
         </button>
-        <button
-          className="btn btn-outline-primary mx-1 my-3"
-          onClick={handleClear}
-        >
+        <button className="btn btn-outline-primary my-3" onClick={handleClear}>
           Clear
         </button>
       </div>
+
 
       <div className="container my-3">
         <h2>Your Text Summary</h2>
         <p>
           {text.split(" ").length - 1} words and {text.length} characters
         </p>
-        <p>Time to Read {(text.split(" ").length) * 0.008} Minutes</p>
+        <p>Time to Read {text.split(" ").length * 0.008} Minutes</p>
         <h2>Preview</h2>
         <p>{text}</p>
       </div>
