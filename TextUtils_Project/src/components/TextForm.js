@@ -15,32 +15,53 @@ export const TextForm = (props) => {
       "Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut atque deleniti ducimus aperiam";
     setText(newText);
   };
-
   const speakText = () => {
     let newText = new SpeechSynthesisUtterance();
     newText.text = text;
-
-    let voices = window.speechSynthesis.getVoices();
-    let femaleVoice;
-
-    for (let i = 0; i < voices.length; i++) {
-      if (voices[i].gender === "female") {
-        femaleVoice = voices[i];
-        break;
-      }
-    }
-
-    if (femaleVoice) {
-      newText.voice = femaleVoice;
-    }
-
     window.speechSynthesis.speak(newText);
   };
-  // const handleReverseText = () => {
-  //   let reversedText = new SpeechSynthesisUtterance();
-  //   newText.text = text;
-  //   window.speechSynthesis.speak(newText);
-  // };
+  const handleReverseText = () => {
+    let reversedText = text.split("");
+    reversedText = reversedText.reverse();
+    reversedText =reversedText.join('');
+    reversedText=reversedText.replace(",","");
+    setText(reversedText);
+  };
+  const handleBinaryClick = () => {
+    let newText = textToBinary(text);
+    setText(newText);
+  };
+  
+  const textToBinary = (text) => {
+    let binaryString = "";
+    for (let i = 0; i < text.length; i++) {
+      let char = text.charCodeAt(i);
+      let binaryRepresentation = char.toString(2);
+      binaryRepresentation = binaryRepresentation.padStart(8, '0');
+      binaryString += binaryRepresentation;
+    }
+    return binaryString;
+  };
+  const handleAsciiClick = () => {
+    let asciiString = "";
+    for (let i = 0; i < text.length; i++) {
+      let char = text.charCodeAt(i);
+      asciiString += char + " ";
+    }
+    setText(asciiString);
+  };
+  const handleHexClick = () => {
+    let hexString = "";
+    for (let i = 0; i < text.length; i++) {
+      let char = text.charCodeAt(i);
+      let hexRepresentation = char.toString(16).toUpperCase();
+      hexRepresentation = hexRepresentation.padStart(2, '0');
+      hexString += hexRepresentation;
+    }
+    setText(hexString);
+  };
+  
+  
   const handleClear = () => {
     setText("");
   };
@@ -61,23 +82,32 @@ export const TextForm = (props) => {
             ></textarea>
           </div>
         </form>
-        <button className="btn btn-primary" onClick={handleUpClick}>
+        <button className="btn btn-primary my-3" onClick={handleUpClick}>
           Convert To Uppercase
         </button>
-        <button className="btn btn-primary mx-3" onClick={handleLowClick}>
+        <button className="btn btn-primary mx-1 my-3" onClick={handleLowClick}>
           Convert To Lowercase
         </button>
-        <button className="btn btn-primary" onClick={addRandomText}>
+        <button className="btn btn-primary my-3" onClick={addRandomText}>
           Add Some Random Text
         </button>
-        <button className="btn btn-primary mx-3" onClick={speakText}>
+        <button className="btn btn-primary mx-1 my-3" onClick={speakText}>
           Speak
         </button>
-        {/* <button className="btn btn-primary mx-3" onClick={handleReverseText}>
+        <button className="btn btn-primary my-3" onClick={handleReverseText}>
           Reverse Text
-        </button> */}
+        </button>
+        <button className="btn btn-primary mx-1 my-3" onClick={handleAsciiClick}>
+          Convert to ASCII
+        </button>
+        <button className="btn btn-primary my-3" onClick={handleHexClick}>
+          Convert to Hexadecimal
+        </button>
+        <button className="btn btn-primary my-3" onClick={handleBinaryClick}>
+          Convert To Binary
+        </button>
         <button
-          className="btn btn-outline-primary float-end"
+          className="btn btn-outline-primary mx-1 my-3"
           onClick={handleClear}
         >
           Clear
@@ -89,7 +119,7 @@ export const TextForm = (props) => {
         <p>
           {text.split(" ").length - 1} words and {text.length} characters
         </p>
-        <p>Time to Read {text.split(" ").length * 0.008} Minutes</p>
+        <p>Time to Read {(text.split(" ").length) * 0.008} Minutes</p>
         <h2>Preview</h2>
         <p>{text}</p>
       </div>
