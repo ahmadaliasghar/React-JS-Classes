@@ -72,13 +72,18 @@ export const TextForm = (props) => {
       <div className="container">
         <form>
           <div className="form-group my-3">
-            <h1  style = {{color: props.mode === 'dark' ? 'white':'black'}}>{props.textTitle}</h1>
+            <h1 style={{ color: props.mode === "dark" ? "white" : "black" }}>
+              {props.textTitle}
+            </h1>
             <textarea
               className="form-control"
               value={text}
               onChange={handleUpChange}
               rows="8"
-              style = {{backgroundColor: props.mode === 'dark' ? '#6B728E':'white', color: props.mode === 'dark' ? 'white':'black'}}
+              style={{
+                backgroundColor: props.mode === "dark" ? "#6B728E" : "white",
+                color: props.mode === "dark" ? "white" : "black",
+              }}
             ></textarea>
           </div>
         </form>
@@ -112,20 +117,33 @@ export const TextForm = (props) => {
         >
           Convert To Binary
         </button>
-        <button className="btn btn-outline-primary my-3" onClick={handleClear}  style = {{color: props.mode === 'dark' ? 'white':'black'}}>
+        <button
+          className="btn btn-outline-primary my-3"
+          onClick={handleClear}
+          style={{ color: props.mode === "dark" ? "white" : "black" }}
+        >
           Clear
         </button>
       </div>
 
-
       <div className="container my-3">
-        <h2  style = {{color: props.mode === 'dark' ? 'white':'black'}}>Your Text Summary</h2>
-        <p  style = {{color: props.mode === 'dark' ? 'white':'black'}}>
-          {text.split(" ").length - 1} words and {text.length} characters
+        <h2 style={{ color: props.mode === "dark" ? "white" : "black" }}>
+          Your Text Summary
+        </h2>
+        <p style={{ color: props.mode === "dark" ? "white" : "black" }}>
+          {text.split(" ").length} words and {text.length} characters
         </p>
-        <p  style = {{color: props.mode === 'dark' ? 'white':'black'}}>Time to Read {text.split(" ").length * 0.008} Minutes</p>
-        <h2  style = {{color: props.mode === 'dark' ? 'white':'black'}}>Preview</h2>
-        <p  style = {{color: props.mode === 'dark' ? 'white':'black'}}>{text.length > 0? text: "Enter something in the above textbox to preview it here!!!"}</p>
+        <p style={{ color: props.mode === "dark" ? "white" : "black" }}>
+          Time to Read {text.split(" ").length * 0.008} Minutes
+        </p>
+        <h2 style={{ color: props.mode === "dark" ? "white" : "black" }}>
+          Preview
+        </h2>
+        <p style={{ color: props.mode === "dark" ? "white" : "black" }}>
+          {text.length > 0
+            ? text
+            : "Enter something in the above textbox to preview it here!!!"}
+        </p>
       </div>
     </>
   );

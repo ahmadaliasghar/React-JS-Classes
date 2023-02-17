@@ -1,29 +1,29 @@
 import React, { useState } from "react";
 
-export default function About() {
+export default function About(props) {
   const [myStyle, setmyStyle] = useState({
-    color: 'black',
-    backgroundColor: 'white',
-    height: '100vm'
+    color: "black",
+    backgroundColor: "white",
+    height: "100vm",
   });
 
   const [btnText, setbtnText] = useState("Enable Dark Mode");
 
   const handleChageMode = () => {
-    if (myStyle.color == 'black') {
+    if (myStyle.color === "black") {
       setmyStyle({
-        color: 'white',
-        backgroundColor: 'black',
+        color: "white",
+        backgroundColor: "black",
       });
       setbtnText("Enable Light Mode");
     } else {
-      setmyStyle({ color: 'black', backgroundColor: 'white' })
+      setmyStyle({ color: "black", backgroundColor: "white" });
       setbtnText("Enable Dark Mode");
     }
   };
   return (
     <>
-    <h1>About Us</h1>
+      <h1 style={{ color: props.mode === "dark" ? "white" : "black" }}>About Us</h1>
       <div className="container my-3 py-3" style={myStyle}>
         <div className="accordion" id="accordionExample">
           <div className="accordion-item">
