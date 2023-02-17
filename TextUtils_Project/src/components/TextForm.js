@@ -87,38 +87,38 @@ export const TextForm = (props) => {
             ></textarea>
           </div>
         </form>
-        <button className="btn btn-primary my-3" onClick={handleUpClick}>
+        <button disabled={text.length===0} className="btn btn-primary my-3" onClick={handleUpClick}>
           Convert To Uppercase
         </button>
-        <button className="btn btn-primary mx-1 my-3" onClick={handleLowClick}>
+        <button disabled={text.length===0} className="btn btn-primary mx-1 my-3" onClick={handleLowClick}>
           Convert To Lowercase
         </button>
         <button className="btn btn-primary my-3" onClick={addRandomText}>
           Add Some Random Text
         </button>
-        <button className="btn btn-primary mx-1 my-3" onClick={speakText}>
+        <button disabled={text.length===0} className="btn btn-primary mx-1 my-3" onClick={speakText}>
           Speak
         </button>
-        <button className="btn btn-primary my-3" onClick={handleReverseText}>
+        <button disabled={text.length===0} className="btn btn-primary my-3" onClick={handleReverseText}>
           Reverse Text
         </button>
         <button
-          className="btn btn-primary mx-1 my-3"
+          disabled={text.length===0} className="btn btn-primary mx-1 my-3"
           onClick={handleAsciiClick}
         >
           Convert to ASCII
         </button>
-        <button className="btn btn-primary my-3" onClick={handleHexClick}>
+        <button disabled={text.length===0} className="btn btn-primary my-3" onClick={handleHexClick}>
           Convert to Hexadecimal
         </button>
         <button
-          className="btn btn-primary mx-1 my-3"
+          disabled={text.length===0} className="btn btn-primary mx-1 my-3"
           onClick={handleBinaryClick}
         >
           Convert To Binary
         </button>
         <button
-          className="btn btn-outline-primary my-3"
+          disabled={text.length===0} className="btn btn-outline-primary my-3"
           onClick={handleClear}
           style={{ color: props.mode === "dark" ? "white" : "black" }}
         >
@@ -131,10 +131,10 @@ export const TextForm = (props) => {
           Your Text Summary
         </h2>
         <p style={{ color: props.mode === "dark" ? "white" : "black" }}>
-          {text.split(" ").length} words and {text.length} characters
+          {text.split(" ").filter((element) => {return element.length!==0}).length} words and {text.length} characters
         </p>
         <p style={{ color: props.mode === "dark" ? "white" : "black" }}>
-          Time to Read {text.split(" ").length * 0.008} Minutes
+          Time to Read {text.split(" ").filter((element) => {return element.length!==0}).length * 0.008} Minutes
         </p>
         <h2 style={{ color: props.mode === "dark" ? "white" : "black" }}>
           Preview
