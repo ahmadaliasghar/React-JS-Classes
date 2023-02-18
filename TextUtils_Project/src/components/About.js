@@ -1,14 +1,6 @@
-import React, { useState } from "react";
+import React from "react";
 
 export default function About(props) {
-  const [myStyle, setmyStyle] = useState({
-    color: "black",
-    backgroundColor: "white",
-    height: "100vm",
-  });
-
-
-
   return (
     <>
       <div className="container my-5 py-3 rounded border" style={{
