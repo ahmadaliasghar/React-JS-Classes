@@ -131,10 +131,10 @@ export const TextForm = (props) => {
           Your Text Summary
         </h2>
         <p style={{ color: props.mode === "dark" ? "white" : "black" }}>
-          {text.split(" ").filter((element) => {return element.length!==0}).length} words and {text.length} characters
+          {text.split(/\s+/).filter((element) => {return element.length!==0}).length} words and {text.length} characters
         </p>
         <p style={{ color: props.mode === "dark" ? "white" : "black" }}>
-          Time to Read {text.split(" ").filter((element) => {return element.length!==0}).length * 0.008} Minutes
+          Time to Read {text.split(/\s+/).filter((element) => {return element.length!==0}).length * 0.008} Minutes
         </p>
         <h2 style={{ color: props.mode === "dark" ? "white" : "black" }}>
           Preview

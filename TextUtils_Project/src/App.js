@@ -32,7 +32,7 @@ function App() {
           toggleMode={toggleMode}
         />
         <Routes>
-          <Route exact={true} path="/about" element={<About />} />
+          <Route exact={true} path="/about" element={<About mode = {mode} />} />
           <Route
             exact={true} path="/"
             element={

@@ -7,25 +7,21 @@ export default function About(props) {
     height: "100vm",
   });
 
-  const [btnText, setbtnText] = useState("Enable Dark Mode");
 
-  const handleChageMode = () => {
-    if (myStyle.color === "black") {
-      setmyStyle({
-        color: "white",
-        backgroundColor: "black",
-      });
-      setbtnText("Enable Light Mode");
-    } else {
-      setmyStyle({ color: "black", backgroundColor: "white" });
-      setbtnText("Enable Dark Mode");
-    }
-  };
+
   return (
     <>
-      <h1 style={{ color: props.mode === "dark" ? "white" : "black" }}>About Us</h1>
-      <div className="container my-3 py-3" style={myStyle}>
-        <div className="accordion" id="accordionExample">
+      <div className="container my-5 py-3 rounded border" style={{
+                backgroundColor: props.mode === "dark" ? "#6B728E" : "white",
+                color: props.mode === "dark" ? "white" : "black",
+              }}>
+        <h1 style={{ color: props.mode === "dark" ? "white" : "black" }}>
+          About Us
+        </h1>
+        <div className="accordion" id="accordionExample" tyle={{
+                backgroundColor: props.mode === "dark" ? "#6B728E" : "white",
+                color: props.mode === "dark" ? "white" : "black",
+              }}>
           <div className="accordion-item">
             <h2 className="accordion-header" id="headingOne">
               <button
@@ -35,9 +31,12 @@ export default function About(props) {
                 data-bs-target="#collapseOne"
                 aria-expanded="true"
                 aria-controls="collapseOne"
-                style={myStyle}
+                style={{
+                  backgroundColor: props.mode === "dark" ? "#6B728E" : "white",
+                  color: props.mode === "dark" ? "white" : "black",
+                }}
               >
-                Accordion Item #1
+                <strong>About</strong>
               </button>
             </h2>
             <div
@@ -45,22 +44,21 @@ export default function About(props) {
               className="accordion-collapse collapse show"
               aria-labelledby="headingOne"
               data-bs-parent="#accordionExample"
-              style={myStyle}
+              style={{
+                backgroundColor: props.mode === "dark" ? "#6B728E" : "white",
+                color: props.mode === "dark" ? "white" : "black",
+              }}
             >
               <div className="accordion-body">
-                <strong>This is the first item's accordion body.</strong> It is
-                shown by default, until the collapse plugin adds the appropriate
-                classes that we use to style each element. These classes control
-                the overall appearance, as well as the showing and hiding via
-                CSS transitions. You can modify any of this with custom CSS or
-                overriding our default variables. It's also worth noting that
-                just about any HTML can go within the{" "}
-                <code>.accordion-body</code>, though the transition does limit
-                overflow.
+                Text utilities is a website that offers a variety of tools and
+                resources for manipulating, formatting, and analyzing text.
               </div>
             </div>
           </div>
-          <div className="accordion-item" style={myStyle}>
+          <div className="accordion-item" style={{
+                backgroundColor: props.mode === "dark" ? "#6B728E" : "white",
+                color: props.mode === "dark" ? "white" : "black",
+              }}>
             <h2 className="accordion-header" id="headingTwo">
               <button
                 className="accordion-button collapsed"
@@ -69,9 +67,12 @@ export default function About(props) {
                 data-bs-target="#collapseTwo"
                 aria-expanded="false"
                 aria-controls="collapseTwo"
-                style={myStyle}
+                style={{
+                  backgroundColor: props.mode === "dark" ? "#6B728E" : "white",
+                  color: props.mode === "dark" ? "white" : "black",
+                }}
               >
-                Accordion Item #2
+                <strong>Objective</strong>
               </button>
             </h2>
             <div
@@ -79,22 +80,20 @@ export default function About(props) {
               className="accordion-collapse collapse"
               aria-labelledby="headingTwo"
               data-bs-parent="#accordionExample"
-              style={myStyle}
+              style={{
+                backgroundColor: props.mode === "dark" ? "#6B728E" : "white",
+                color: props.mode === "dark" ? "white" : "black",
+              }}
             >
               <div className="accordion-body">
-                <strong>This is the second item's accordion body.</strong> It is
-                hidden by default, until the collapse plugin adds the
-                appropriate classes that we use to style each element. These
-                classes control the overall appearance, as well as the showing
-                and hiding via CSS transitions. You can modify any of this with
-                custom CSS or overriding our default variables. It's also worth
-                noting that just about any HTML can go within the{" "}
-                <code>.accordion-body</code>, though the transition does limit
-                overflow.
+                Our Objective is to meet our user's need, make easy for them to to analyze their texts.
               </div>
             </div>
           </div>
-          <div className="accordion-item" style={myStyle}>
+          <div className="accordion-item" style={{
+                backgroundColor: props.mode === "dark" ? "#6B728E" : "white",
+                color: props.mode === "dark" ? "white" : "black",
+              }}>
             <h2 className="accordion-header" id="headingThree">
               <button
                 className="accordion-button collapsed"
@@ -103,9 +102,12 @@ export default function About(props) {
                 data-bs-target="#collapseThree"
                 aria-expanded="false"
                 aria-controls="collapseThree"
-                style={myStyle}
+                style={{
+                  backgroundColor: props.mode === "dark" ? "#6B728E" : "white",
+                  color: props.mode === "dark" ? "white" : "black",
+                }}
               >
-                Accordion Item #3
+                <strong>Features</strong>
               </button>
             </h2>
             <div
@@ -113,27 +115,26 @@ export default function About(props) {
               className="accordion-collapse collapse"
               aria-labelledby="headingThree"
               data-bs-parent="#accordionExample"
-              style={myStyle}
+              style={{
+                backgroundColor: props.mode === "dark" ? "#6B728E" : "white",
+                color: props.mode === "dark" ? "white" : "black",
+              }}
             >
               <div className="accordion-body">
-                <strong>This is the third item's accordion body.</strong> It is
-                hidden by default, until the collapse plugin adds the
-                appropriate classes that we use to style each element. These
-                classes control the overall appearance, as well as the showing
-                and hiding via CSS transitions. You can modify any of this with
-                custom CSS or overriding our default variables. It's also worth
-                noting that just about any HTML can go within the{" "}
-                <code>.accordion-body</code>, though the transition does limit
-                overflow.
+                <ul>
+                  <li><strong>Text Formatting: </strong>These tools allow you to modify the way your text appears, such as adjusting the font size, font style, or formatting the text in different ways, such as bold, italic, underline or strikethrough.</li>
+                <li><strong>Word Count: </strong>This feature allows you to quickly and easily calculate the number of words in a given block of text. This is especially useful for writers, bloggers, and journalists who need to meet specific word count requirements.</li>
+                <li><strong>Text Analysis: </strong>This feature provides various analysis tools such as readability score, sentiment analysis, and keyword density checker. These analysis tools help to evaluate the overall readability and the mood of your text content.</li>
+                <li><strong>Case Conversion: </strong>These tools enable you to convert text between uppercase and lowercase, or convert the first letter of each word to uppercase.</li>
+                <li><strong>Text Comparison: </strong>These tools allow you to compare two different pieces of text, highlighting the differences and similarities between them.</li>
+                <li><strong>Text Translation: </strong>This feature allows you to translate text from one language to another.</li>
+                <li><strong>Random Text Generation: </strong>These tools generate random text to help with filling placeholders or generate sample data for testing purposes.</li>
+                <li><strong>Text-to-Speech: </strong>These tools convert text into audio, which can be helpful for people who have difficulty reading or for language learners.</li>
+                </ul>
               </div>
             </div>
           </div>
         </div>
-      </div>
-      <div className="container">
-        <button className="btn btn-primary my-3" onClick={handleChageMode}>
-          {btnText}
-        </button>
       </div>
     </>
   );
